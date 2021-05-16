@@ -7,10 +7,19 @@ const router = express.Router();
 
 router.use('/price/:currency', (req, res) => {
     const currency = req.params.currency,
-          coins = (req.query.coin || "usd").split(",");
+          coins = (req.query.coin || "bitcoin").split(",");
+          plain = req.query.plain || false;
           
     return getPrice(coins, currency)
-        .then(prices => { res.send(prices) })
+        .then(prices => { 
+            if (plain && coins.length == 1)            
+            {
+                res.type("text/plain");
+                res.send(String(prices[coins[0]][currency]));
+            }
+            else
+                res.send(prices);
+        })
         .catch(err => {
             console.log(err);
             res.send({});
