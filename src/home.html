@@ -1,63 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">    
+    <title>Crypee</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/sl-1.3.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.24/sl-1.3.3/datatables.min.js"></script>
 </head>
-<body>
-    <script>
-        function echoHost() {
-            document.write(location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : ""));            
-        }
-    </script>
-    <div class="container">
+<body class="d-flex flex-column h-100">
+    <header>
         <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Crypee - a API for get last hour price of crypto currencies</span>
-            </div>
+            <span class="ml-auto mr-auto navbar-text h3">
+                Crypee : A API for last hour price of crypto currencies
+            </span>
         </nav>
-        <h4 class="mt-3">Samples</h4>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <h5>Excel</h5>
-                <p class="font-monospace">=WEBSERVICE("<script>echoHost()</script>/price/usd?plain=1&coin=bitcoin")</p>
-            </li>
-            <li class="list-group-item">
-                <h5>Google Sheet</h5>
-                <p class="font-monospace">=IMPORTDATA("<script>echoHost()</script>/price/usd?plain=1&coin=bitcoin")</p>
-            </li>
-            <li class="list-group-item">
-                <h5>Planilha Excel</h5>
-                <p class="font-monospace">=SUBSTITUIR(SERVIÇOWEB("<script>echoHost()</script>/price/brl?plain=1&coin=bitcoin"); "."; ",")</p>
-            </li>
-            <li class="list-group-item">
-                <h5>Google Planilhas</h5>
-                <p class="font-monospace">=VALUE(SUBSTITUTE(IMPORTDATA("<script>echoHost()</script>/price/brl?plain=1&coin=bitcoin");".";","))</p>
-            </li>
-            <li class="list-group-item">
-                <h5>NodeJS</h5>
-                <pre>
-<code>const axios = require('axios');
-axios.get('<script>echoHost()</script>/price/usd?coin=bitcoin')
-    .then(response => {
-        console.log(response.data.bitcoin.usd);
-    })
-    .catch(error => {
-        console.log(error);
-    });</code></pre>
-            </li>
-            <li class="list-group-item">
-                <h5>Python</h5>
-                <pre><code>import urllib.request, json
+    </header>
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+            <div class="mt-2">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-t0-tab" data-toggle="tab" href="#nav-t0" role="tab" aria-controls="nav-t0" aria-selected="true">URL</a>
+                    <a class="nav-link" id="nav-t1-tab" data-toggle="tab" href="#nav-t1" role="tab" aria-controls="nav-t1" aria-selected="true">Excel</a>
+                    <a class="nav-link" id="nav-t2-tab" data-toggle="tab" href="#nav-t2" role="tab" aria-controls="nav-t2" aria-selected="false">Google Sheet</a>
+                    <a class="nav-link" id="nav-t3-tab" data-toggle="tab" href="#nav-t3" role="tab" aria-controls="nav-t3" aria-selected="false">Planilha Excel</a>
+                    <a class="nav-link" id="nav-t4-tab" data-toggle="tab" href="#nav-t4" role="tab" aria-controls="nav-t4" aria-selected="false">Planilha Google</a>
+                    <a class="nav-link" id="nav-t5-tab" data-toggle="tab" href="#nav-t5" role="tab" aria-controls="nav-t5" aria-selected="false">NodeJS</a>
+                    <a class="nav-link" id="nav-t6-tab" data-toggle="tab" href="#nav-t6" role="tab" aria-controls="nav-t6" aria-selected="false">Python</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-t0" role="tabpanel" aria-labelledby="nav-t0-tab">
+                        <pre class="font-monospace"><a class="url" href="" target="_blank"><code></code></a></pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t1" role="tabpanel" aria-labelledby="nav-t1-tab">
+                        <pre class="font-monospace url">=WEBSERVICE("<code></code>")</pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t2" role="tabpanel" aria-labelledby="nav-t2-tab">
+                        <pre class="font-monospace url">=IMPORTDATA("<code></code>")</pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t3" role="tabpanel" aria-labelledby="nav-t3-tab">
+                        <pre class="font-monospace url">=SUBSTITUIR(SERVIÇOWEB("<code></code>"); "."; ",")</pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t4" role="tabpanel" aria-labelledby="nav-t4-tab">
+                        <pre class="font-monospace url">=VALUE(SUBSTITUTE(IMPORTDATA("<code></code>");".";","))</pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t5" role="tabpanel" aria-labelledby="nav-t5-tab">
+                        <pre class="url">
+    const axios = require('axios');
+    axios.get('<code></code>')
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });</pre>
+                    </div>
+                    <div class="tab-pane fade" id="nav-t6" role="tabpanel" aria-labelledby="nav-t6-tab">
+                        <pre class="url">import urllib.request, json
+    contents = json.loads(urllib.request.urlopen("<code></code>").read())
+    print(contents)</pre>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-3 mb-3 text-center">Select currency, search and select the coin bellow. See the code in tabs above</p>
 
-contents = json.loads(urllib.request.urlopen("<script>echoHost()</script>/price/usd?coin=bitcoin").read())
-print(contents["bitcoin"]["usd"])</code></pre>
-            </li>
-        </ul>
-        <a class="btn btn-primary mt-2" href="coinlist" target="_blank">Coin List Selector</a>
-    </div>
+            <div class="form-row mb-4">
+                <label for="currency">Currency</label>
+                <select id="currency" class="custom-select">
+                    <option value="btc">btc</option>
+                    <option value="eth">eth</option>
+                    <option value="ltc">ltc</option>
+                    <option value="bch">bch</option>
+                    <option value="bnb">bnb</option>
+                    <option value="eos">eos</option>
+                    <option value="xrp">xrp</option>
+                    <option value="xlm">xlm</option>
+                    <option value="link">link</option>
+                    <option value="dot">dot</option>
+                    <option value="yfi">yfi</option>
+                    <option value="usd" selected>usd</option>
+                    <option value="aed">aed</option>
+                    <option value="ars">ars</option>
+                    <option value="aud">aud</option>
+                    <option value="bdt">bdt</option>
+                    <option value="bhd">bhd</option>
+                    <option value="bmd">bmd</option>
+                    <option value="brl">brl</option>
+                    <option value="cad">cad</option>
+                    <option value="chf">chf</option>
+                    <option value="clp">clp</option>
+                    <option value="cny">cny</option>
+                    <option value="czk">czk</option>
+                    <option value="dkk">dkk</option>
+                    <option value="eur">eur</option>
+                    <option value="gbp">gbp</option>
+                    <option value="hkd">hkd</option>
+                    <option value="huf">huf</option>
+                    <option value="idr">idr</option>
+                    <option value="ils">ils</option>
+                    <option value="inr">inr</option>
+                    <option value="jpy">jpy</option>
+                    <option value="krw">krw</option>
+                    <option value="kwd">kwd</option>
+                    <option value="lkr">lkr</option>
+                    <option value="mmk">mmk</option>
+                    <option value="mxn">mxn</option>
+                    <option value="myr">myr</option>
+                    <option value="ngn">ngn</option>
+                    <option value="nok">nok</option>
+                    <option value="nzd">nzd</option>
+                    <option value="php">php</option>
+                    <option value="pkr">pkr</option>
+                    <option value="pln">pln</option>
+                    <option value="rub">rub</option>
+                    <option value="sar">sar</option>
+                    <option value="sek">sek</option>
+                    <option value="sgd">sgd</option>
+                    <option value="thb">thb</option>
+                    <option value="try">try</option>
+                    <option value="twd">twd</option>
+                    <option value="uah">uah</option>
+                    <option value="vef">vef</option>
+                    <option value="vnd">vnd</option>
+                    <option value="zar">zar</option>
+                    <option value="xdr">xdr</option>
+                    <option value="xag">xag</option>
+                    <option value="xau">xau</option>
+                    <option value="bits">bits</option>
+                    <option value="sats">sats</option>        
+                </select>
+            </div>
+
+            <table id="coins" class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="bg-light mt-4 pt-2 pb-2">
+            <div class="container">
+                This API is based on <a href="https://www.coingecko.com/en/api" target="_blank">Coingecko public API</a>
+                - Open source at <a href="https://github.com/pagotti/crypee" target="_blank">Github</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var c_coin = "bitcoin", c_currency = "usd";
+
+        function formatUrl() {
+            var host = location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "");
+            var endpoint = host + "/price/" + c_currency + "?plain=1&coin=" + c_coin;
+            $(".url code").text(endpoint); 
+            $(".url[href]")[0].href = endpoint;
+        }
+
+        $(document).ready( function () {
+            formatUrl();
+            $("#currency").on("input", function (e) { 
+                c_currency = e.target.value;
+                formatUrl();
+            });
+            var t = $('table').DataTable({ 
+                ajax: {
+                    url: '/data/coinlist',
+                    dataSrc: ""
+                },
+                columns: [
+                    { "data": "id" },
+                    { "data": "symbol" },
+                    { "data": "name" }
+                ],
+                select: 'single' 
+            });
+            t.on('select', function ( e, dt, type, indexes ) {
+                if (type === 'row') {
+                    var data = dt.rows(indexes).data();
+                    console.log(data);
+                    c_coin = data[0]["id"];
+                    formatUrl();
+                }
+            } );            
+        } );
+    </script>
 </body>
 </html>
