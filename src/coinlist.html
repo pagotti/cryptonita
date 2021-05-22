@@ -104,7 +104,7 @@
         var c_coin = "bitcoin", c_currency = "usd";
 
         function formatUrl() {
-            var host = location.protocol + "//" + location.hostname + (location.port != 80 ? ":" + location.port : "");
+            var host = location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "");
             var endpoint = host + "/price/" + c_currency + "?coin=" + c_coin;
             $("#url code").text(endpoint); 
             $("#url")[0].href = endpoint;

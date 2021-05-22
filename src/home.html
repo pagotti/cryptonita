@@ -10,7 +10,7 @@
 <body>
     <script>
         function echoHost() {
-            document.write(location.protocol + "//" + location.hostname + (location.port != 80 ? ":" + location.port : ""));            
+            document.write(location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : ""));            
         }
     </script>
     <div class="container">
@@ -53,7 +53,7 @@ axios.get('<script>echoHost()</script>/price/usd?coin=bitcoin')
                 <h5>Python</h5>
                 <pre><code>import urllib.request, json
 
-contents = json.loads(urllib.request.urlopen("https://<script>echoHost()</script>/price/usd?coin=bitcoin").read())
+contents = json.loads(urllib.request.urlopen("<script>echoHost()</script>/price/usd?coin=bitcoin").read())
 print(contents["bitcoin"]["usd"])</code></pre>
             </li>
         </ul>
