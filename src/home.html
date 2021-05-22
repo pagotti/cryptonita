@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">    
+</head>
+<body>
+    <script>
+        function echoHost() {
+            document.write(location.protocol + "//" + location.hostname + (location.port != 80 ? ":" + location.port : ""));            
+        }
+    </script>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Crypee - a API for get last hour price of crypto currencies</span>
+            </div>
+        </nav>
+        <h4 class="mt-3">Samples</h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h5>Excel</h5>
+                <p class="font-monospace">=WEBSERVICE("<script>echoHost()</script>/price/usd?plain=1&coin=bitcoin")</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Google Sheet</h5>
+                <p class="font-monospace">=IMPORTDATA("<script>echoHost()</script>/price/usd?plain=1&coin=bitcoin")</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Planilha Excel</h5>
+                <p class="font-monospace">=SUBSTITUIR(SERVIÇOWEB("<script>echoHost()</script>/price/brl?plain=1&coin=bitcoin"); "."; ",")</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Google Planilhas</h5>
+                <p class="font-monospace">=VALUE(SUBSTITUTE(IMPORTDATA("<script>echoHost()</script>/price/brl?plain=1&coin=bitcoin");".";","))</p>
+            </li>
+            <li class="list-group-item">
+                <h5>NodeJS</h5>
+                <pre>
+<code>const axios = require('axios');
+axios.get('<script>echoHost()</script>/price/usd?coin=bitcoin')
+    .then(response => {
+        console.log(response.data.bitcoin.usd);
+    })
+    .catch(error => {
+        console.log(error);
+    });</code></pre>
+            </li>
+            <li class="list-group-item">
+                <h5>Python</h5>
+                <pre><code>import urllib.request, json
+
+contents = json.loads(urllib.request.urlopen("https://<script>echoHost()</script>/price/usd?coin=bitcoin").read())
+print(contents["bitcoin"]["usd"])</code></pre>
+            </li>
+        </ul>
+        <a class="btn btn-primary mt-2" href="coinlist" target="_blank">Coin List Selector</a>
+    </div>
+</body>
+</html>
