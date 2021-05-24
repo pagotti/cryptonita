@@ -1,5 +1,5 @@
 {
-  "name": "crypee",
+  "name": "cryptonita",
   "version": "0.1.0",
   "description": "coin price api",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pagotti/crypee.git"
+    "url": "git+https://github.com/pagotti/cryptonita.git"
   },
   "author": "Vagner Pagotti",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pagotti/crypee/issues"
+    "url": "https://github.com/pagotti/cryptonita/issues"
   },
-  "homepage": "https://github.com/pagotti/crypee#readme",
+  "homepage": "https://github.com/pagotti/cryptonita#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",

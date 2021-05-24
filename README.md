@@ -1,6 +1,6 @@
-# Crypee
+# Cryptonita
 
-Crypee is a API for get last hour price of crypto currencies.
+Cryptonita is a API for get last hour price of crypto currencies.
 
 
 ## PostgreSQL Setup
