@@ -1,8 +1,9 @@
 # Cryptonita
 
-Cryptonita is a API for get last hour price of crypto currencies.
+[Cryptonita](http://cryptonita.herokuapp.com) is a site and an API for get last hour price of crypto currencies.
 
 
+You can integrate into your application or into worksheets like Excel or Google Sheet.
 ## PostgreSQL Setup
 To setup database table for cached prices:
 
